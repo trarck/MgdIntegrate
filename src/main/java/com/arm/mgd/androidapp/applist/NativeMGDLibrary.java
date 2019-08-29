@@ -16,7 +16,8 @@ public class NativeMGDLibrary {
     private static boolean lastStartedWithSendTraceDataToHost;
 
     static {
-        System.loadLibrary("com.arm.mgd.mgddaemon");
+        //System.loadLibrary("com.arm.mgd.mgddaemon");
+        System.loadLibrary("com.arm.aga.daemon");
         EXECUTOR = Executors.newSingleThreadExecutor();
         isRunning = false;
         lastStartedWithSendTraceDataToHost = false;

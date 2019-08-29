@@ -31,27 +31,31 @@ public class InterceptUnityPlayerActivity extends Activity
     {
         try
         {
-            Log.d("mgd_","load mgd");
-            System.loadLibrary("MGD");
+            Log.d("aga_","load mgd");
+            System.loadLibrary("AGA");
         }
         catch (UnsatisfiedLinkError e)
         {
             // Feel free to remove this log message.
-            Log.e("mgd_", "GA not loaded: " + e.getMessage());
-            Log.d("mgd_", Log.getStackTraceString(e));
+            Log.e("aga_", "GA not loaded: " + e.getMessage());
+            Log.d("aga_", Log.getStackTraceString(e));
         }
     }
     // Setup activity layout
     @Override protected void onCreate(Bundle savedInstanceState)
     {
+        Log.d("aga_", "onCreate: in");
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //run Daemon
         mDaemonLauncher=new DaemonLauncher();
         mDaemonLauncher.StartCommand(getIntent(),0,1);
 
+        Log.d("aga_", "onCreate: before");
         super.onCreate(savedInstanceState);
+        Log.d("aga_", "onCreate: after");
         //init unity
         initUnityPlayer();
+        Log.d("aga_", "int unity: after");
         mUnityShow=false;
         mUnityFullScreen=false;
 
@@ -77,7 +81,6 @@ public class InterceptUnityPlayerActivity extends Activity
                 showUnityPlayerFullScreen();
             }
         });
-
     }
 
     protected  void initUnityPlayer(){
